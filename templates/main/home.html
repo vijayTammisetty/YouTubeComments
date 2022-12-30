@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zxx">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="DJoz Template">
+    <meta name="keywords" content="DJoz, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home page</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{% static 'user/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/barfiller.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/nowfont.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/rockville.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/magnific-popup.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/style.css' %}" type="text/css">
+     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-2">
+                    <div class="header__logo">
+                        <a href="#" class="display-4">Crypto</a>
+                    </div>
+                </div>
+                <div class="col-lg-10 col-md-10">
+                    <div class="header__nav">
+                        <nav class="header__menu mobile-menu">
+                            <ul>
+                                <li class="active"><a href="{% url 'home' %}">Home</a></li>
+                                <li><a href="{% url 'about' %}">About</a></li>
+                                {% comment %} <li><a href="{% url 'discography' %}">Discography</a></li> {% endcomment %}
+                                <li><a href="{% url 'admin_login' %}">Admin</a></li>
+                                {% comment %} <li><a href="{% url 'home' %}">Videos</a></li> {% endcomment %}
+                                <li><a href="{% url 'user_login' %}">User</a>
+                                    {% comment %} <ul class="dropdown">
+                                        <li><a href="./about.html">About</a></li>
+                                        <li><a href="./blog.html">Blog</a></li>
+                                        <li><a href="./blog-details.html">Blog Details</a></li>
+                                    </ul> {% endcomment %}
+                                </li>
+                                <li><a href="{% url 'contact' %}">Contact</a></li>
+                            </ul>
+                        </nav>
+                        <div class="header__right__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-menu-wrap"></div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+
+    <!-- Hero Section Begin -->
+    <section class="hero spad set-bg" data-setbg="{% static 'user/img/bitcoin.jpg' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="hero__text">
+                       
+                        <h1>Bitcoin</h1>
+                        <p>Cryptocurrency, sometimes called crypto-currency or crypto, is any form of currency that exists digitally or virtually and uses cryptography to secure ....</p>
+                        {% comment %} <a href="https://www.youtube.com/watch?v=K4DyBUG242c" class="play-btn video-popup"><i class="fa fa-play"></i></a> {% endcomment %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% comment %} <div class="linear__icon">
+            <i class="fa fa-angle-double-down"></i>
+        </div> {% endcomment %}
+    </section>
+    <!-- Hero Section End -->
+
+   
+
+    <!-- About Section Begin -->
+    <section class="about spad mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="about__pic">
+                        <img src="{% static 'user/img/cryptocurrency.jpg' %}" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about__text">
+                        <div class="section-title">
+                            <h2>Cryptocurrency</h2>
+                           
+                        </div>
+                        <p>A cryptocurrency is a digital currency, which is an alternative form of payment created
+                            using encryption algorithms. The use of encryption
+                            technologies means that cryptocurrencies function both as a currency
+                            and as a virtual accounting system. To use cryptocurrencies, you need a cryptocurrency wallet.
+                        </p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Section End -->
+
+   
+
+   
+
+
+   
+
+    {% if messages %}              
+    {% for message in messages %}
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+                <script>swal({
+                  title: "Warning!",
+                  text: "{{message}}",
+                  icon: "warning",
+                  button: "OK",
+                });
+              </script>
+             
+            {% elif message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+                <script>swal({
+                  title: "Info :)",
+                  text: "{{message}}",
+                  icon: "info",
+                  button: "OK",
+                });
+     </script>
+    {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+      <script>swal({
+        title: "Error :)",
+        text: "{{message}}",
+        icon: "eroor",
+        button: "OK",
+      });
+    </script>
+    {% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+    <script>swal({
+      title: "Success :)",
+      text: "{{message}}",
+      icon: "success",
+      button: "OK",
+    });
+    </script>
+    {% endif %}              
+    {% endfor %} 
+    {% endif %}
+    
+    <!-- Footer Section Begin -->
+<section class="youtube spad " style="margin-top:300px">
+    <footer class="footer spad set-bg" data-setbg="{% static 'user/img/footer-bg.png' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer__address">
+                        <ul>
+                            <li>
+                                <i class="fa fa-phone"></i>
+                                <p>Phone</p>
+                                <h6>+91-8555887986</h6>
+                            </li>
+                            <li>
+                                <i class="fa fa-envelope"></i>
+                                <p>Email</p>
+                                <h6>info@codebook.in</h6>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 offset-lg-1 col-md-6">
+                    <div class="footer__social">
+                        <h2>Crypto</h2>
+                        <div class="footer__social__links">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 offset-lg-1 col-md-6">
+                    <div class="footer__newslatter">
+                        <h4>Stay With me</h4>
+                        <form action="#">
+                            <input type="text" placeholder="Email">
+                            <button type="submit"><i class="fa fa-send-o"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+			<div class="footer__copyright__text">
+				<p>Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://www.codebook.in" target="_blank">Codebook</a></p>
+			</div>
+			<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        </div>
+    </footer>
+</section>
+    <!-- Footer Section End -->
+
+    <!-- Js Plugins -->
+    <script src="{% static 'user/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'user/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'user/js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'user/js/jquery.nicescroll.min.js' %}"></script>
+    <script src="{% static 'user/js/jquery.barfiller.js' %}"></script>
+    <script src="{% static 'user/js/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'user/js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'user/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'user/js/main.js' %}"></script>
+
+    <!-- Music Plugin -->
+    <script src="{% static 'user/js/jquery.jplayer.min.js' %}"></script>
+    <script src="{% static 'user/js/jplayerInit.js' %}"></script>
+</body>
+
+</html>

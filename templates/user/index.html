@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zxx">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="DJoz Template">
+    <meta name="keywords" content="DJoz, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title > Home page</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{% static 'user/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/barfiller.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/nowfont.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/rockville.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/magnific-popup.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/style.css' %}" type="text/css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-2">
+                    <div class="header__logo">
+                        <a href="#" class='display-4'>Crypto</a>
+                    </div>
+                </div>
+                <div class="col-lg-10 col-md-10">
+                    <div class="header__nav">
+                        <nav class="header__menu mobile-menu">
+                            <ul>
+                                <li class="active"><a href="{% url 'user-home' %}">Home</a></li>
+                               
+                                <li><a href="{% url 'api_search' %}">Analysis</a></li>
+                                <li><a href="{% url 'profile' %}">Profile</a>
+                                    
+                                </li>
+                                <li><a href="{% url 'logout' %}">Logout</a></li>
+                            </ul>
+                        </nav>
+                        <div class="header__right__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-menu-wrap"></div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+
+    <!-- Hero Section Begin -->
+    <section class="hero spad set-bg" data-setbg="{% static 'user/img/Cryptocurrency-Market.jpg' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="hero__text">
+                       
+                        <h1>Crypto</h1>
+                        <p>Today's Cryptocurrency Prices by Market Cap
+
+                            The total crypto market volume over the last 24 hours is $45.43B, which makes a 24.72% decrease. The total volume in DeFi is currently $2.93B, 6.45% of the total crypto market 24-hour volume..</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="linear__icon">
+            <i class="fa fa-angle-double-down"></i>
+        </div>
+    </section>
+    <!-- Hero Section End -->
+
+   
+    <!-- Services Section Begin -->
+    <section class="services mt-4">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 p-0">
+                    <div class="services__left set-bg" data-setbg="{% static 'user/img/b-2.jpg' %}">
+                        {% comment %} <a href="https://www.youtube.com/watch?v=JGwWNGJdvx8" class="play-btn video-popup"><i class="fa fa-play"></i></a> {% endcomment %}
+                    </div>
+                </div>
+                <div class="col-lg-6 p-0">
+                    <div class="row services__list">
+                        <div class="col-lg-6 p-0 order-lg-1 col-md-6 order-md-1">
+                            
+                                <img src="{% static 'user/img/b-3.jpg' %}" alt="" height="320px">
+                                
+                          
+                        </div>
+                        <div class="col-lg-6 p-0 order-lg-2 col-md-6 order-md-2">
+                            
+                                <img src="{% static 'user/img/b-4.jpg' %}" alt="" height="320px">
+                                
+                          
+                        </div>
+                        <div class="col-lg-6 p-0 order-lg-2 col-md-6 order-md-2">
+                            
+                            <img src="{% static 'user/img/market.jpg' %}" alt="" height="320px">
+                        
+                         </div>
+                        <div class="col-lg-6 p-0 order-lg-2 col-md-6 order-md-2">
+                                
+                            <img src="{% static 'user/img/grouth.png' %}" alt="" height="320px">
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services Section End -->
+
+   
+
+   
+
+   
+
+    <!-- Footer Section Begin -->
+    <footer class="footer spad set-bg" data-setbg="{% static 'user/img/footer-bg.png' %}" style="margin-top:50px">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer__address">
+                        <ul>
+                            <li>
+                                <i class="fa fa-phone"></i>
+                                <p>Phone</p>
+                                <h6>+91-8555887986</h6>
+                            </li>
+                            <li>
+                                <i class="fa fa-envelope"></i>
+                                <p>Email</p>
+                                <h6>info@codebook.in</h6>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 offset-lg-1 col-md-6">
+                    <div class="footer__social">
+                        <h2>Crypto</h2>
+                        <div class="footer__social__links">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 offset-lg-1 col-md-6">
+                    <div class="footer__newslatter">
+                        <h4>Stay With me</h4>
+                        <form action="#">
+                            <input type="text" placeholder="Email">
+                            <button type="submit"><i class="fa fa-send-o"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+			<div class="footer__copyright__text">
+				<p>Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://www.codebook.in" target="_blank">Codebook</a></p>
+			</div>
+			<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+    {% if messages %}              
+    {% for message in messages %}
+       {% if message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+                 <script>swal({
+                   title: "Warning!",
+                   text: "{{message}}",
+                   icon: "warning",
+                   button: "OK",
+                 });
+               </script>
+            
+             {% elif message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+                 <script>swal({
+                   title: "Info :)",
+                   text: "{{message}}",
+                   icon: "info",
+                   button: "OK",
+                 });
+       </script>
+       {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+       <script>swal({
+         title: "Error :)",
+         text: "{{message}}",
+         icon: "eroor",
+         button: "OK",
+       });
+       </script>
+       {% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+       <script>swal({
+       title: "Success :)",
+       text: "{{message}}",
+       icon: "success",
+       button: "OK",
+       });
+       </script>
+             {% endif %}              
+           {% endfor %} 
+       {% endif %}
+    <!-- Js Plugins -->
+    <script src="{% static 'user/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'user/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'user/js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'user/js/jquery.nicescroll.min.js' %}"></script>
+    <script src="{% static 'user/js/jquery.barfiller.js' %}"></script>
+    <script src="{% static 'user/js/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'user/js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'user/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'user/js/main.js' %}"></script>
+
+    <!-- Music Plugin -->
+    <script src="{% static 'user/js/jquery.jplayer.min.js' %}"></script>
+    <script src="{% static 'user/js/jplayerInit.js' %}"></script>
+</body>
+
+</html>

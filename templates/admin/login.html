@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+   {% load static %}
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Admin Login</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- site icon -->
+      <link rel="icon" href="{% static 'admin/images/fevicon.png' %}" type="image/png" />
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="{% static 'admin/css/bootstrap.min.css' %}" />
+      <!-- site css -->
+      <link rel="stylesheet" href="{% static 'admin/css/style.css' %}" />
+      <!-- responsive css -->
+      <link rel="stylesheet" href="{% static 'admin/css/responsive.css' %}" />
+      <!-- color css -->
+      <link rel="stylesheet" href="{% static 'admin/css/colors.css' %}" />
+      <!-- select bootstrap -->
+      <link rel="stylesheet" href="{% static 'admin/css/bootstrap-select.css' %}" />
+      <!-- scrollbar css -->
+      <link rel="stylesheet" href="{% static 'admin/css/perfect-scrollbar.css' %}" />
+      <!-- custom css -->
+      <link rel="stylesheet" href="{% static 'admin/css/custom.css' %}" />
+      <!-- calendar file css -->
+      <link rel="stylesheet" href="{% static 'admin/js/semantic.min.css' %}" />
+      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+
+         <script>
+            function validation(){
+               name = document.getElementById('name').value;
+               password = document.getElementById('password').value;
+
+               if (name == ''){
+                  alert('Enter admin name')
+                  name.focus()
+                  return false
+               }
+
+               if (password == ''){
+                  alert('Enter password')
+                  password.focus()
+                  return false
+               }
+
+            }
+
+
+         </script>
+   </head>
+   <body class="inner_page login">
+      <div class="full_container">
+         <div class="container">
+            <div class="center verticle_center full_height">
+               <div class="login_section">
+                  <div class="logo_login">
+                     <div class="center">
+                        <img width="210" src="{% static 'admin/images/logo/logo.png' %}" alt="#" />
+                     </div>
+                  </div>
+                  <div class="login_form">
+                     <form action='' method='post' name='myform' onsubmit='return validation()'>
+                        {% csrf_token %}
+                        <fieldset>
+                           <div class="field">
+                              <label class="label_field">Name</label>
+                              <input type="text" id='name' name="name" placeholder="Admin name" />
+                           </div>
+                           <div class="field">
+                              <label class="label_field">Password</label>
+                              <input type="password" id='password' name="password" placeholder="Password" />
+                           </div>
+                           <div class="field">
+                              <label class="label_field hidden">hidden label</label>
+                              <label class="form-check-label"><input type="checkbox" class="form-check-input"> Remember Me</label>
+                              <a class="forgot" href="">Forgotten Password?</a>
+                           </div>
+                           <div class="field margin_0">
+                              <label class="label_field hidden">hidden label</label>
+                              <button class="main_bt">Sing In</button>
+                           </div>
+                        </fieldset>
+                        
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+         
+      <!-- jQuery -->
+      <script src="{% static 'admin/js/jquery.min.js' %}"></script>
+      <script src="{% static 'admin/js/popper.min.js' %}"></script>
+      <script src="{% static 'admin/js/bootstrap.min.js' %}"></script>
+      <!-- wow animation -->
+      <script src="{% static 'admin/js/animate.js' %}"></script>
+      <!-- select country -->
+      <script src="{% static 'admin/js/bootstrap-select.js' %}"></script>
+      <!-- nice scrollbar -->
+      <script src="{% static 'admin/js/perfect-scrollbar.min.js' %}"></script>
+      <script>
+         var ps = new PerfectScrollbar('#sidebar');
+      </script>
+      <!-- custom js -->
+      <script src="{% static 'admin/js/custom.js' %}"></script>
+
+      {% comment %} {% csrf_token %} {% endcomment %}
+      {% if messages %}              
+      {% for message in messages %}
+         {% if message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+                   <script>swal({
+                     title: "Warning!",
+                     text: "{{message}}",
+                     icon: "warning",
+                     button: "OK",
+                   });
+                 </script>
+              
+               {% elif message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+                   <script>swal({
+                     title: "Info :)",
+                     text: "{{message}}",
+                     icon: "info",
+                     button: "OK",
+                   });
+         </script>
+         {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+         <script>swal({
+           title: "Error :)",
+           text: "{{message}}",
+           icon: "eroor",
+           button: "OK",
+         });
+         </script>
+         {% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+         <script>swal({
+         title: "Success :)",
+         text: "{{message}}",
+         icon: "success",
+         button: "OK",
+         });
+         </script>
+               {% endif %}              
+             {% endfor %} 
+         {% endif %}
+   </body>
+</html>

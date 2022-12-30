@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zxx">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="DJoz Template">
+    <meta name="keywords" content="DJoz, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User Login</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{% static 'user/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/barfiller.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/nowfont.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/rockville.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/magnific-popup.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/style.css' %}" type="text/css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+    <script>
+
+        function validation(){
+            email = document.getElementById('email').value;
+            password = document.getElementById('password').value;
+
+
+            if (email.value.length <= 0){
+                alert('Enter your Email')
+                email.focus()
+                return false
+            }
+
+            if (password.value.length <= 0 ){
+                alert('Enter password')
+                password.focus()
+                return false
+            }
+
+        }
+
+
+
+    </script>
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header Section Begin -->
+    <header class="header header--normal">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-2">
+                    <div class="header__logo">
+                        <a href="{% url 'home' %}" class="display-4">Crypto</a>
+                    </div>
+                </div>
+                <div class="col-lg-10 col-md-10">
+                    <div class="header__nav">
+                        <nav class="header__menu mobile-menu">
+                            <ul>
+                                <li><a href="{% url 'home' %}">Home</a></li>
+                                <li ><a href="{% url 'about' %}">About</a></li>
+                                
+                                <li><a href="{% url 'admin_login' %}">Admin</a></li>
+                                <li class='active'><a href="{% url 'user_login' %}">User</a></li>
+                                {% comment %} <li><a href="#">Pages</a>
+                                    <ul class="dropdown">
+                                        <li><a href="./about.html">About</a></li>
+                                        <li><a href="./blog.html">Blog</a></li>
+                                        <li><a href="./blog-details.html">Blog Details</a></li>
+                                    </ul>
+                                </li> {% endcomment %}
+                                <li><a href="{% url 'contact' %}">Contact</a></li>
+                            </ul>
+                        </nav>
+                        <div class="header__right__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-menu-wrap"></div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+
+    <!-- Breadcrumb Begin -->
+    <div class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__links">
+                        <a href="{% url 'home' %}"><i class="fa fa-home"></a></i> Home
+                        <span><a href="{% url 'about' %}">About</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb End -->
+
+    <!-- Skills Section Begin -->
+    <section class="skills spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 p-0">
+                    <div class="skills__content">
+                        <form method='POST' action="" name='myform' onsubmit="return validation()">
+                            {% csrf_token %}
+                            <h3 class="fw-normal text-white text-center pb-3" style="letter-spacing: 1px;"> User Login</h3>
+      
+                            <div class="form-outline mb-4">
+                              <label class="form-label text-white" for="form2Example18">Employee Email</label>
+                              <input type="email" id="email" name= 'email' class="form-control form-control-lg" />
+                            
+                            </div>
+                
+                            <div class="form-outline mb-4">
+                              <label class="form-label text-white" for="form2Example28">Password</label>
+                              <input type="password" id="password" name='password' class="form-control form-control-lg" />
+                              
+                            </div>
+                
+                            <div class="pt-1 mb-2 ">
+                              <button class="btn btn-info w-100 btn-lg " type="submit">Login</button>
+                            </div>
+
+                            <p>
+                                New user<a href="{% url 'register' %}" class='text-warning  '> Register here</a>
+                            </p>
+                            
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6 p-0">
+                    <div class="skills__video set-bg" data-setbg="{% static 'user/img/bitcoin.jpg' %}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Skills Section End -->
+
+    
+
+    
+
+    
+
+    <!-- Footer Section Begin -->
+    <footer class="footer footer--normal spad set-bg" data-setbg="{% static 'user/img/footer-bg.png' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer__address">
+                        <ul>
+                            <li>
+                                <i class="fa fa-phone"></i>
+                                <p>Phone</p>
+                                <h6>+91-8555887986</h6>
+                            </li>
+                            <li>
+                                <i class="fa fa-envelope"></i>
+                                <p>Email</p>
+                                <h6>info@codebook.in</h6>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 offset-lg-1 col-md-6">
+                    <div class="footer__social">
+                        <h2>Crypto</h2>
+                        <div class="footer__social__links">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 offset-lg-1 col-md-6">
+                    <div class="footer__newslatter">
+                        <h4>Stay With me</h4>
+                        <form action="#">
+                            <input type="text" placeholder="Email">
+                            <button type="submit"><i class="fa fa-send-o"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__copyright__text">
+				<p>Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://www.codebook.in" target="_blank">Codebook</a></p>
+			</div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+    {% if messages %}              
+    {% for message in messages %}
+       {% if message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+                 <script>swal({
+                   title: "Warning!",
+                   text: "{{message}}",
+                   icon: "warning",
+                   button: "OK",
+                 });
+               </script>
+            
+             {% elif message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+                 <script>swal({
+                   title: "Info :)",
+                   text: "{{message}}",
+                   icon: "info",
+                   button: "OK",
+                 });
+       </script>
+       {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+       <script>swal({
+         title: "Error :)",
+         text: "{{message}}",
+         icon: "eroor",
+         button: "OK",
+       });
+       </script>
+       {% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+       <script>swal({
+       title: "Success :)",
+       text: "{{message}}",
+       icon: "success",
+       button: "OK",
+       });
+       </script>
+             {% endif %}              
+           {% endfor %} 
+       {% endif %}
+    <!-- Js Plugins -->
+    <script src="{% static 'user/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'user/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'user/js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'user/js/jquery.nicescroll.min.js' %}"></script>
+    <script src="{% static 'user/js/jquery.barfiller.js' %}"></script>
+    <script src="{% static 'user/js/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'user/js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'user/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'user/js/main.js' %}"></script>
+    <!-- Music Plugin -->
+    <script src="{% static 'user/js/jquery.jplayer.min.js' %}"></script>
+    <script src="{% static 'user/js/jplayerInit.js' %}"></script>
+</body>
+
+</html>

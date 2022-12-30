@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zxx">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="DJoz Template">
+    <meta name="keywords" content="DJoz, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Discography</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{% static 'user/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/barfiller.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/nowfont.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/rockville.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/magnific-popup.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/style.css' %}" type="text/css">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header Section Begin -->
+    <header class="header header--normal">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-2">
+                    <div class="header__logo">
+                        <a href="./index.html"><img src="{% static 'user/img/logo.png' %}" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-10 col-md-10">
+                    <div class="header__nav">
+                        <nav class="header__menu mobile-menu">
+                            <ul>
+                                <li><a href="{% url 'home' %}">Home</a></li>
+                                <li><a href="./about.html">About</a></li>
+                                <li class="active"><a href="{% url 'discography' %}">Discography</a></li>
+                                <li><a href="{% url 'tours' %}">Tours</a></li>
+                                <li><a href="{% url 'videos' %}">Videos</a></li>
+                                <li><a href="#">Pages</a>
+                                    <ul class="dropdown">
+                                        <li><a href="./about.html">About</a></li>
+                                        <li><a href="./blog.html">Blog</a></li>
+                                        <li><a href="./blog-details.html">Blog Details</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="{% url 'contact' %}">Contact</a></li>
+                            </ul>
+                        </nav>
+                        <div class="header__right__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-menu-wrap"></div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+
+    <!-- Breadcrumb Begin -->
+    <div class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__links">
+                        <a href="#"><i class="fa fa-home"></i> Home</a>
+                        <span>Discography</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb End -->
+
+    <!-- Discography Section Begin -->
+    <section class="discography spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title center-title">
+                        <h2>Latest Releases</h2>
+                        <h1>Discography</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="discography__item">
+                        <div class="discography__item__pic">
+                            <img src="{% static 'user/img/discography/disco-1.jpg' %}" alt="">
+                        </div>
+                        <div class="discography__item__text">
+                            <span>$ 52.00</span>
+                            <h4>EDM Party Electro House</h4>
+                            <a href="#"><img src="{% static 'user/img/discography/link-1.jpg' %}" alt=""></a>
+                            <a href="#"><img src="{% static 'user/img/discography/link-2.jpg' %}" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="discography__item">
+                        <div class="discography__item__pic">
+                            <img src="{% static 'user/img/discography/disco-2.jpg' %}" alt="">
+                        </div>
+                        <div class="discography__item__text">
+                            <span>$ 52.00</span>
+                            <h4>EDM Party Electro House</h4>
+                            <a href="#"><img src="{% static 'user/img/discography/link-1.jpg' %}" alt=""></a>
+                            <a href="#"><img src="{% static 'user/img/discography/link-2.jpg' %}" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="discography__item">
+                        <div class="discography__item__pic">
+                            <img src="{% static 'user/img/discography/disco-3.jpg' %}" alt="">
+                        </div>
+                        <div class="discography__item__text">
+                            <span>$ 52.00</span>
+                            <h4>EDM Party Electro House</h4>
+                            <a href="#"><img src="{% static 'user/img/discography/link-1.jpg' %}" alt=""></a>
+                            <a href="#"><img src="{% static 'user/img/discography/link-2.jpg' %}" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="discography__item">
+                        <div class="discography__item__pic">
+                            <img src="{% static 'user/img/discography/disco-4.jpg' %}" alt="">
+                        </div>
+                        <div class="discography__item__text">
+                            <span>$ 52.00</span>
+                            <h4>EDM Party Electro House</h4>
+                            <a href="#"><img src="{% static 'user/img/discography/link-1.jpg' %}" alt=""></a>
+                            <a href="#"><img src="{% static 'user/img/discography/link-2.jpg' %}" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="discography__item">
+                        <div class="discography__item__pic">
+                            <img src="{% static 'user/img/discography/disco-5.jpg' %}" alt="">
+                        </div>
+                        <div class="discography__item__text">
+                            <span>$ 52.00</span>
+                            <h4>EDM Party Electro House</h4>
+                            <a href="#"><img src="{% static 'user/img/discography/link-1.jpg' %}" alt=""></a>
+                            <a href="#"><img src="{% static 'user/img/discography/link-2.jpg' %}" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="discography__item">
+                        <div class="discography__item__pic">
+                            <img src="{% static 'user/img/discography/disco-6.jpg' %}" alt="">
+                        </div>
+                        <div class="discography__item__text">
+                            <span>$ 52.00</span>
+                            <h4>EDM Party Electro House</h4>
+                            <a href="#"><img src="{% static 'user/img/discography/link-1.jpg' %}" alt=""></a>
+                            <a href="#"><img src="{% static 'user/img/discography/link-2.jpg' %}" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="pagination__links">
+                        <a href="#">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#">Next</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Discography Section End -->
+
+    <!-- Footer Section Begin -->
+    <footer class="footer footer--normal spad set-bg" data-setbg="{% static 'user/img/footer-bg.png' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer__address">
+                        <ul>
+                            <li>
+                                <i class="fa fa-phone"></i>
+                                <p>Phone</p>
+                                <h6>+91-8555887986</h6>
+                            </li>
+                            <li>
+                                <i class="fa fa-envelope"></i>
+                                <p>Email</p>
+                                <h6>info@codebook.in</h6>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 offset-lg-1 col-md-6">
+                    <div class="footer__social">
+                        <h2>DJoz</h2>
+                        <div class="footer__social__links">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 offset-lg-1 col-md-6">
+                    <div class="footer__newslatter">
+                        <h4>Stay With me</h4>
+                        <form action="#">
+                            <input type="text" placeholder="Email">
+                            <button type="submit"><i class="fa fa-send-o"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__copyright__text">
+				<p>Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://www.codebook.in" target="_blank">Codebook</a></p>
+			</div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Js Plugins -->
+    <script src="{% static 'user/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'user/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'user/js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'user/js/jquery.nicescroll.min.js' %}"></script>
+    <script src="{% static 'user/js/jquery.barfiller.js' %}"></script>
+    <script src="{% static 'user/js/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'user/js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'user/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'user/js/main.js' %}"></script>
+
+    <!-- Music Plugin -->
+    <script src="{% static 'user/js/jquery.jplayer.min.js' %}"></script>
+    <script src="{% static 'user/js/jplayerInit.js' %}"></script>
+</body>
+
+</html>

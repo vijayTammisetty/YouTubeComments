@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>All Users</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- site icon -->
+      <link rel="icon" href="{% static 'admin/images/fevicon.png' %}" type="image/png" />
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="{% static 'admin/css/bootstrap.min.css' %}" />
+      <!-- site css -->
+      <link rel="stylesheet" href="{% static 'admin/css/style.css' %}" />
+      <!-- responsive css -->
+      <link rel="stylesheet" href="{% static 'admin/css/responsive.css' %}" />
+      <!-- color css -->
+      <link rel="stylesheet" href="{% static 'admin/css/colors.css' %}" />
+      <!-- select bootstrap -->
+      <link rel="stylesheet" href="{% static 'admin/css/bootstrap-select.css' %}" />
+      <!-- scrollbar css -->
+      <link rel="stylesheet" href="{% static 'admin/css/perfect-scrollbar.css' %}" />
+      <!-- custom css -->
+      <link rel="stylesheet" href="{% static 'admin/css/custom.css' %}" />
+      <!-- calendar file css -->
+      <link rel="stylesheet" href="{% static 'admin/js/semantic.min.css' %}" />
+      <!-- fancy box js -->
+      <link rel="stylesheet" href="{% static 'admin/css/jquery.fancybox.css' %}" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+   </head>
+   <body class="inner_page tables_page">
+      <div class="full_container">
+         <div class="inner_container">
+            <!-- Sidebar  -->
+            <nav id="sidebar">
+                <div class="sidebar_blog_1">
+                   <div class="sidebar-header">
+                      <div class="logo_section">
+                      </div>
+                   </div>
+                   <div class="sidebar_user_info">
+                      <div class="icon_setting"></div>
+                      <div class="user_profle_side">
+                         <div class="user_img"><img class="img-responsive" src="{% static 'admin/images/layout_img/user_img.jpg' %}" alt="#" /></div>
+                         <div class="user_info">
+                            <h6>Administrator</h6>
+                            <p><span class="online_animation"></span> Online</p>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+                <div class="sidebar_blog_2">
+                 
+                   <ul class="list-unstyled components">
+                      <li class="active">
+                         <a href="{% url 'dashboard' %}" ><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a>
+                         
+                      </li>
+                      <li>
+                         <a href="#element" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-diamond purple_color"></i> <span>User Management</span></a>
+                         <ul class="collapse list-unstyled" id="element">
+                            <li><a href="{% url 'pending-users' %}">> <span>Pending Users</span></a></li>
+                            <li><a href="{% url 'all-users' %}">> <span>All Users</span></a></li>
+                            
+                         </ul>
+                      </li>
+                      
+                      
+                   </ul>
+                </div>
+             </nav>
+            <!-- end sidebar -->
+            <!-- right content -->
+            <div id="content">
+               <!-- topbar -->
+               <div class="topbar">
+                  <nav class="navbar navbar-expand-lg navbar-light">
+                     <div class="full">
+                        <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
+                        <div class="logo_section">
+                           <a href="#"><img class="img-responsive" src="{% static 'admin/images/logo/logo.png' %}" alt="#" /></a>
+                        </div>
+                        <div class="right_topbar">
+                           <div class="icon_info">
+                              
+                              <ul class="user_profile_dd">
+                                 <li>
+                                    <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="{% static 'admin/images/layout_img/user_img.jpg' %}" alt="#" /><span class="name_user">Administrator</span></a>
+                                    <div class="dropdown-menu">
+                                       
+                                       <a class="dropdown-item" href="{% url 'log-out' %}"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
+                                    </div>
+                                 </li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                  </nav>
+               </div>
+               <!-- end topbar -->
+               <!-- dashboard inner -->
+               <div class="midde_cont">
+                  <div class="container-fluid">
+                    
+                     <!-- row -->
+                     <div class="row">
+                        
+                        
+                        <!-- table section -->
+                        <div class="col-md-12">
+                           <div class="white_shd full margin_bottom_30">
+                              <div class="full graph_head">
+                                 <div class="heading1 margin_0">
+                                    <h2>All Users</h2>
+                                 </div>
+                              </div>
+                              <div class="table_section padding_infor_info">
+                                 <div class="table-responsive-sm">
+                                    <table class="table table-hover table-bordered text-center">
+                                       <thead>
+                                          <tr>
+                                             <th>Name</th>
+                                             <th>Profile</th>
+                                             <th>Email</th>
+                                             <th>Status</th>
+                                             <th>Actions</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                        {% for user in users %}
+                                          <tr >
+                                             <td>{{user.name}}</td>
+                                             <td><img src="/media/{{user.profile}}" style="width:50px;height:50px;border-radius: 50%;"></td>
+                                             <td>{{user.email}}</td>
+                                             <td>{{user.status}}</td>
+                                             <td>
+                                                
+                                                <a href="{% url 'delete_user' user.user_id %}">
+                                                    <button class="btn btn-danger" onclick="return confirm ('Are you sure want to delete it')">
+                                                        Delete
+                                                    </button>
+                                                </a>
+                                             </td>
+                                          </tr>
+                                          {% endfor %}
+                                          
+                                       </tbody>
+                                    </table>
+                                 </div>
+                                 <nav aria-label="Page navigation example">
+                                    <ul class="pagination ml-2">
+                                        {% if users.has_previous %}
+                                            <!-- <li class="page-item"><a class="page-link" href="?page=1">&laquo; First</a></li> -->
+                                            <li class="page-item"><a class="page-link bg-info text-white" href="?page={{ users.previous_page_number }}">Previous</a></li>
+                                        {% endif %}
+                                        {% if users.has_next %}
+                                        <li class="page-item"><a class="page-link bg-info text-white" href="?page={{ users.next_page_number }}">Next</a></li>
+                                        <!-- <li class="page-item"><a class="page-link" href="?page={{ r.paginator.num_pages }}">Last &raquo;</a></li> -->
+                                        {% endif %}
+                                    </ul>
+                                    Page {{ users.number }} of {{ users.paginator.num_pages }}.
+                                  </nav>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- footer -->
+                  <div class="container-fluid">
+                     <div class="footer">
+                        <p>Copyright © 2022 Designed by html.design. All rights reserved.<br><br>
+                            Distributed By: <a href="https://www.codebook.in">Codebook</a>
+                         </p>
+                     </div>
+                  </div>
+               </div>
+               <!-- end dashboard inner -->
+            </div>
+         </div>
+         <!-- model popup -->
+         {% if messages %}              
+         {% for message in messages %}
+         {% if message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+                     <script>swal({
+                       title: "Warning!",
+                       text: "{{message}}",
+                       icon: "warning",
+                       button: "OK",
+                     });
+                   </script>
+                  
+                 {% elif message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+                     <script>swal({
+                       title: "Info :)",
+                       text: "{{message}}",
+                       icon: "info",
+                       button: "OK",
+                     });
+          </script>
+         {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+           <script>swal({
+             title: "Error :)",
+             text: "{{message}}",
+             icon: "eroor",
+             button: "OK",
+           });
+         </script>
+         {% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+         <script>swal({
+           title: "Success :)",
+           text: "{{message}}",
+           icon: "success",
+           button: "OK",
+         });
+         </script>
+         {% endif %}              
+         {% endfor %} 
+         {% endif %}
+         
+
+
+
+         <!-- The Modal -->
+         <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+               <div class="modal-content">
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                     <h4 class="modal-title">Modal Heading</h4>
+                     <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                     Modal body..
+                  </div>
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- end model popup -->
+      </div>
+      <!-- jQuery -->
+      <script src="{% static 'admin/js/jquery.min.js' %}"></script>
+      <script src="{% static 'admin/js/popper.min.js' %}"></script>
+      <script src="{% static 'admin/js/bootstrap.min.js' %}"></script>
+      <!-- wow animation -->
+      <script src="{% static 'admin/js/animate.js' %}"></script>
+      <!-- select country -->
+      <script src="{% static 'admin/js/bootstrap-select.js' %}"></script>
+      <!-- owl carousel -->
+      <script src="{% static 'admin/js/owl.carousel.js' %}"></script> 
+      <!-- chart js -->
+      <script src="{% static 'admin/js/Chart.min.js' %}"></script>
+      <script src="{% static 'admin/js/Chart.bundle.min.js' %}"></script>
+      <script src="{% static 'admin/js/utils.js' %}"></script>
+      <script src="{% static 'admin/js/analyser.js' %}"></script>
+      <!-- nice scrollbar -->
+      <script src="{% static 'admin/js/perfect-scrollbar.min.js' %}"></script>
+      <script>
+         var ps = new PerfectScrollbar('#sidebar');
+      </script>
+      <!-- fancy box js -->
+      <script src="{% static 'admin/js/jquery-3.3.1.min.js' %}"></script>
+      <script src="{% static 'admin/js/jquery.fancybox.min.js' %}"></script>
+      <!-- custom js -->
+      <script src="{% static 'admin/js/custom.js' %}"></script>
+      <!-- calendar file css -->    
+      <script src="{% static 'admin/js/semantic.min.js' %}"></script>
+   </body>
+</html>

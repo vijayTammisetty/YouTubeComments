@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="DJoz Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{% static 'user/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/barfiller.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/nowfont.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/rockville.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/magnific-popup.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/style.css' %}" type="text/css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+</head> 
+<body>
+       <!-- Header Section Begin -->
+       <header class="header header--normal">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-2">
+                    <div class="header__logo">
+                        <a href="./index.html"><img src="{% static 'user/img/logo.png' %}" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-10 col-md-10">
+                    <div class="header__nav">
+                        <nav class="header__menu mobile-menu">
+                            <ul>
+                                <li ><a href="{% url 'user-home' %}">Home</a></li>
+                                
+                                <li class='active'><a href="{% url 'api_search' %}">Analysis</a></li>
+                                <li ><a href="{% url 'profile' %}">Profile</a>
+                                    
+                                </li>
+                                <li><a href="{% url 'logout' %}">Logout</a></li>
+                            </ul>
+                            
+                        </nav>
+                        <div class="header__right__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <!-- Search form -->
+           
+            <div id="mobile-menu-wrap"></div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+
+
+    <div class="container-fluid mt-4 ">
+        <div class="row">
+            <div class="col-sm ">
+                <div class=" offset-lg-1 col-md-6 text-center">
+                    <form action="" method="post" >
+                        {% csrf_token %}
+                        <!-- <i class="bx bx-search fs-4 lh-0"></i>  -->
+                       
+                        <div class="d-flex">
+                         
+                          <input
+                            type="search"
+                            name = 'search'
+                            class="form-control border-3 shadow-none d-flex "
+                            placeholder="Search"
+                            aria-label="Search"
+                            {% comment %} style="align-items: right; margin-left:50px;margin-bottom:0px;width: 500px;" {% endcomment %} 
+                          />&nbsp;
+                          <button class="btn btn-outline-primary" type="submit" >Search<i class="bx bx-search fs-4 lh-0"></i></button>
+
+                        </div>
+                      </form> 
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            {% for video in videos %}
+            <div class="col-sm-8">
+                <div class="card mb-4 shadow-sm" style="width: 50rem;">
+                    <iframe src="{{video.url}}"
+                     allow="accelerometer; autoplay; 
+                     clipboard-write; encrypted-media; gyroscope;
+                      picture-in-picture"
+                       allowfullscreen
+                       style="margin-bottom:0px;height: 400px;"
+                       >
+
+                    </iframe>
+                    {% comment %} <img class="bg-placeholder-img card-img-top " src="{{video.thumbnails}}"  alt="..."> {% endcomment %}
+                    <div class="card-body">
+                      <p class="card-text">Video Title : {{video.title}}</p>
+                      <p class="card-text">Video Id : {{video.id}}</p>
+                      <div class="d-flex justify-contene-between align-items-center">
+                        
+                        <div class="btn-group">
+                            <a href="{{video.url}}"  type="button" class="btn btn-sm btn-outline-primary"> View</a>
+                        </div>
+                        <small class="text-muted " style="margin-left:auto;">Duration : {{video.duration}} min</small>
+                      </div>
+                    </div>
+                </div>   
+            </div>
+            {% endfor %}
+            <div class="col-sm-4" style="float:right;">
+                <div class="card"  >
+                    <div class="card-body" >
+                        <canvas id="myChart" style="width: 200px;height: 200px;"></canvas>
+                        <script>
+                            const ctx = document.getElementById('myChart').getContext('2d');
+                            const myChart = new Chart(ctx, {
+                              type: 'bar',
+                              data: {
+                               labels: ["Positive","Very Positive", "Negative", "Very Negative","Neutral"],
+                               datasets: [{
+                                  label: ' Comments in %',
+                                  data: ['{{positive}}','{{verypositive}}','{{negetive}}','{{verynegetive}}',"{{neutral}}"],
+                                  
+                                  backgroundColor: [
+                                    'rgba(255, 99, 132, )',
+                                    'rgba(54, 162, 235, )',
+                                    'rgba(255, 206, 86, )',
+                                    'rgba(75, 192, 192, )',
+                                    'rgba(153, 102, 255,)',
+                                    'rgba(255, 159, 64, )'
+                                  ],
+                                  borderColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)'
+                                  ],
+                                  borderWidth: 1
+                                }]
+                              },
+                              options: {
+                                scales: {
+                                  y: {
+                                    beginAtZero: true
+                                  }
+                                }
+                              }
+                            });
+                        </script>
+                
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <div class="row">
+            <div class="card mb-4 shadow-sm ml-3" style="width: 50rem; ">
+                <div class="card-body">
+
+                    {% for i in comments %}
+                    <div class="mb-3">
+
+                        <p><img src="{{i.image}}" style="width:50px;height:50px;border-radius:50%">
+                            &nbsp;&nbsp;&nbsp;<span >
+                                {{i.name}}
+
+                                
+                            <span style="float:right" >
+                                {% if i.sentiment == 'Positive' %}
+                                    {{i.sentiment}}
+                                    <img src="{% static 'user/img/positive.png' %}" style="width:100px;height:100px;border-radius:50%;" >
+
+                                {% elif i.sentiment == 'Very Positive' %}
+                                    {{i.sentiment}}
+                                    <img src="{% static 'user/img/verypositive.png' %}" style="width:100px;height:100px;border-radius:50%;" class="text-end">
+
+                                {% elif i.sentiment == 'Negative' %}
+                                    {{i.sentiment}}
+                                    <img src="{% static 'user/img/negetive.png' %}" style="width:100px;height:100px;border-radius:50%;" class="text-end">
+
+                                {% elif i.sentiment == 'Very Negative' %}
+                                    {{i.sentiment}}
+                                    <img src="{% static 'user/img/verynegetive.png' %}" style="width:100px;height:100px;border-radius:50%;" class="text-end">
+
+                                {% elif i.sentiment == 'Neutral' %}
+                                    {{i.sentiment}}
+                                    <img src="{% static 'user/img/Nutral.png' %}" style="width:70px;height:70px;border-radius:50%;margin-right:10px;" class="text-end">
+
+                                {% endif %}
+                            </span>
+                            </span>
+                        </p>
+                        <p >
+                            {{i.comment}}
+
+                        </p>
+                     <hr>
+                    </div>
+                            
+                    {% endfor %}
+                    
+                </div>
+            </div>
+        </div>
+    
+    </div>
+
+    {% if messages %}              
+    {% for message in messages %}
+       {% if message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+                 <script>swal({
+                   title: "Warning!",
+                   text: "{{message}}",
+                   icon: "warning",
+                   button: "OK",
+                 });
+               </script>
+            
+             {% elif message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+                 <script>swal({
+                   title: "Info :)",
+                   text: "{{message}}",
+                   icon: "info",
+                   button: "OK",
+                 });
+       </script>
+       {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+       <script>swal({
+         title: "Error :)",
+         text: "{{message}}",
+         icon: "eroor",
+         button: "OK",
+       });
+       </script>
+       {% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+       <script>swal({
+       title: "Success :)",
+       text: "{{message}}",
+       icon: "success",
+       button: "OK",
+       });
+       </script>
+             {% endif %}              
+           {% endfor %} 
+       {% endif %}
+
+
+</body>
+</html>
+
+
